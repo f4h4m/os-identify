@@ -1,0 +1,5 @@
+192.168.1.1 -> linux-ttl=5.16 
+google.com -> linux-ttl=48.0 
+aparat.com -> linux-ttl=52.0 
+192.168.1.5 -> None 
+instagram.com -> Solaris/AIX-ttl=230.0 

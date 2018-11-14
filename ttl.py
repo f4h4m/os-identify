@@ -17,21 +17,23 @@ def return_ttl_os_name(ttl_number):
     ttl = ttl_number
     if ttl:
         if ttl >= 0 and ttl <= 64:
-            return ('linux - ttl = %s ' % ttl)
+            return ('linux-ttl=%s' % ttl)
         elif ttl >= 65 and ttl <= 128:
-            return('Windows - ttl = %s ' % ttl)
+            return('Windows-ttl=%s' % ttl)
         elif ttl >= 129 and ttl <= 254:
-            return ('Solaris/AIX - ttl = %s ' % ttl)
+            return ('Solaris/AIX-ttl=%s' % ttl)
         else:
-            return ('unknown = %s' % ttl)
+            return ('unknown=%s' % ttl)
     else:
         pass
 
 
-f = open('data','r')
+f = open('data')
+newF = open('newData','w')
 for addr in f.readlines():
     addr = addr.strip()
     ttl = return_ttl_number(addr)
 
+    newF.write('%s -> %s \n' % (addr,return_ttl_os_name(ttl)))
     print('%s -> %s' % (addr,return_ttl_os_name(ttl)))
 
